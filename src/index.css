@@ -1,8 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,700;1,700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 @import "tailwindcss";
 
-@theme {
-    --color-font-title: #475c39;
-    --color-bg-logo: #f5f3eb;
+/* Definimos nuestras variables en la capa base de Tailwind */
+@layer base {
+  :root {
+    --color-main: #4a654a;
+    --color-1: #475c39;
+    --color-2: #f5f3eb;
+    --color-3: #897639;
+    --color-4: #5c96a8;
+    --color-5: #95a39a;
+    --color-6: #bfb49a;
+    --color-7: #c4cac1;
+    --color-8: #b8bcb4;
+    --color-9: #7c847c;
+    --color-10: #549494;
+
     --font-title: "Cormorant Garamond", serif;
+    --font-body: "Nunito", sans-serif;
+  }
 }

@@ -1,64 +1,93 @@
 import React, { useState } from 'react';
-import logo from '../assets/icono_logo.webp'; // Asegúrate de que el logo esté importado correctamente
+import { HiMenu, HiX } from 'react-icons/hi';
+import logo from '../assets/icono_logo.webp';
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState('#home');
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const navLinks = [
+    { href: "#home", label: "Inicio" },
+    { href: "#about", label: "Sobre Nosotros" },
+    { href: "#cMap", label: "Rutas" },
+    { href: "#testimonials", label: "Testimonios" },
+  ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-bg-logo backdrop-blur-sm z-50 border-b border-gray-100 shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 bg-[var(--color-2)] backdrop-blur-sm z-50 border-b border-gray-100 shadow-sm">
       {/* Contenedor principal */}
-      <div className="w-full flex justify-between items-center container mx-auto px-4 sm:px-6 lg:px-8 md:h-20 h-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between">
         
-        {/* Logo alineado a la izquierda */}
-        <div className="flex items-center space-x-2">
-          <img 
-            src={logo} 
-            alt="Raíces de Florida" 
-            className="h-full md:h-16 lg:h-20 object-contain" 
+        {/* Logo (alineado a la izquierda) */}
+        <div className="flex items-center h-full space-x-2 overflow-hidden">
+          <img
+            src={logo}
+            alt="Raíces de Florida"
+            className="h-auto max-h-full object-contain"
           />
         </div>
 
-        {/* Menú de navegación a la derecha */}
-        <div className="hidden md:flex space-x-6">
-          <a href="#home" className="text-[#475c39] hover:text-gray-700">Inicio</a>
-          <a href="#about" className="text-[#475c39] hover:text-gray-700">Sobre Nosotros</a>
-          <a href="#contact" className="text-[#475c39] hover:text-gray-700">Contactar</a>
-        </div>
-
         {/* Botón del menú móvil */}
-        <button
-          onClick={toggleMenu}
-          className="md:hidden text-green-700 focus:outline-none"
+        <button 
+          className="md:hidden p-2"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            ></path>
-          </svg>
+          {isMenuOpen ? (
+            <HiX className="h-6 w-6 text-[var(--color-1)]" />
+          ) : (
+            <HiMenu className="h-6 w-6 text-[var(--color-1)]" />
+          )}
         </button>
+
+        {/* Menú de navegación para pantallas grandes */}
+        <div className="hidden md:flex space-x-10">
+          {navLinks.map((link, index) => (
+            <a
+              key={index}
+              href={link.href}
+              onClick={() => setActiveLink(link.href)}
+              className={`
+                text-sm font-medium relative 
+                after:absolute after:bottom-0 after:left-0 
+                after:h-0.5 after:w-0 hover:after:w-full after:bg-[var(--color-1)] after:transition-all
+                ${activeLink === link.href 
+                  ? 'text-[var(--color-1)] after:w-full' 
+                  : 'text-gray-600 hover:text-gray-900'
+                }
+              `}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
       </div>
 
       {/* Menú desplegable para pantallas pequeñas */}
-      <div
-        className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} bg-white p-4`}
-      >
-        <a href="#home" className="block text-green-700 py-2 hover:text-gray-700">Inicio</a>
-        <a href="#about" className="block text-green-700 py-2 hover:text-gray-700">Sobre Nosotros</a>
-        <a href="#contact" className="block text-green-700 py-2 hover:text-gray-700">Contactar</a>
-      </div>
+      {isMenuOpen && (
+        <div className="md:hidden bg-white border-t border-gray-100 py-4">
+          <div className="container mx-auto px-4 space-y-4">
+            {navLinks.map((link, index) => (
+              <a
+                key={index}
+                href={link.href}
+                onClick={() => {
+                  setActiveLink(link.href);
+                  setIsMenuOpen(false);
+                }}
+                className={`
+                  block text-sm font-medium py-2 
+                  ${activeLink === link.href 
+                    ? 'text-[var(--color-1)]' 
+                    : 'text-gray-600 hover:text-gray-900'
+                  }
+                `}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
