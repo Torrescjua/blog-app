@@ -101,9 +101,9 @@ const Footer = () => {
             <p className="text-[var(--color-3)] text-sm">
               Copyright © {new Date().getFullYear()} Raíces de Florida
             </p>
-            <p className="text-[var(--color-3)] text-sm">
+{/*             <p className="text-[var(--color-3)] text-sm">
               Creado por ...
-            </p>
+            </p> */}
           </div>
         </div>
       </div>

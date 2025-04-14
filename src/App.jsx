@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import FrontPage from './components/frontPage';
 import Footer from './components/Footer';
+import PurposeSection from './components/PurposeSection';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <div className="overflow-hidden">
         <Navbar />
         <FrontPage />
+        <PurposeSection />
         <Footer />
       </div>
     </main>

@@ -8,7 +8,7 @@ function Navbar() {
 
   const navLinks = [
     { href: "#home", label: "Inicio" },
-    // { href: "#about", label: "" },
+    { href: "#about", label: "Nuestro Propósito" },
     { href: "#Payr", label: "Pratimonio Local" },
     { href: "#cMap", label: "Rutas" },
     { href: "#testimonials", label: "Testimonios" },
