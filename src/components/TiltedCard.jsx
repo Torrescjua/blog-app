@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import logo from '../assets/logo_bg_blanco.webp';
 
 function TiltedCard({
-  image = "https://via.placeholder.com/250",
+  image = logo,
   subtitle = "Colombia",
   title = "Unidad VI",
   description = "Aquí puedes mostrar la información detallada relacionada con la tarjeta. Por ejemplo, describir el contenido histórico, cultural o cualquier dato de interés que desees."
@@ -14,18 +15,13 @@ function TiltedCard({
 
   return (
     <div className="flex flex-col items-center">
-      {/* Tarjeta Inclinada */}
+      {/* Tarjeta sin inclinación */}
       <div
         onClick={handleOpenModal}
-        className="
-          w-64 relative cursor-pointer 
-          transform rotate-[-5deg] 
-          transition-transform duration-300 
-          hover:rotate-0 hover:scale-105
-        "
+        className="w-64 relative cursor-pointer transition-transform duration-300 hover:scale-105"
       >
-        {/* Sección superior: Imagen en cuadrado */}
-        <div className="relative w-full aspect-square overflow-hidden">
+        {/* Sección superior: Imagen en cuadrado con margen interno */}
+        <div className="relative w-full aspect-square overflow-hidden p-2">
           <img
             src={image}
             alt={title}
@@ -53,10 +49,7 @@ function TiltedCard({
             <p className="text-gray-700 mb-4">{description}</p>
             <button
               onClick={handleCloseModal}
-              className="
-                bg-gray-800 text-white px-4 py-2 rounded 
-                hover:bg-gray-900 transition-colors
-              "
+              className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 transition-colors"
             >
               Cerrar
             </button>

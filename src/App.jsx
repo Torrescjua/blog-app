@@ -4,6 +4,11 @@ import Navbar from './components/Navbar';
 import FrontPage from './components/frontPage';
 import Footer from './components/Footer';
 import PurposeSection from './components/PurposeSection';
+import FeaturesSection from './components/FeatureSection';
+import LegacySection from './components/LegacySection';
+import ScrollingSection from './components/ScrollingSection';
+
+import myLocalImage from './assets/icono_logo.webp';
 
 function App() {
   return (
@@ -14,6 +19,15 @@ function App() {
         <Navbar />
         <FrontPage />
         <PurposeSection />
+        <FeaturesSection />
+        <LegacySection />
+        <TiltedCard 
+          image={myLocalImage}
+          subtitle="Colombia"
+          title="Unidad VI"
+          description="Esta es la información detallada de la Unidad VI, destacando su relevancia histórica y cultural en la región."
+        />
+        {/* <ScrollingSection /> */}
         <Footer />
       </div>
     </main>
