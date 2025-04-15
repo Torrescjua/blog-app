@@ -16,51 +16,43 @@ const testimoniosData = [
     image: logo,
     subtitle: "Colombia",
     title: "Valle de Florida",
-    description: "Un bien posee valor histórico cuando se constituye en documento o testimonio para la "
+    description: "Un bien posee valor histórico cuando se constituye en documento"
   },
   {
     id: 1,
     image: logo,
     subtitle: "Colombia",
     title: "Valle de Florida",
-    description: "Un bien posee valor histórico cuando se constituye en documento o testimonio para la reconstrucción de la historia, así como para el conocimiento científico"
+    description: "Un bien posee valor histórico cuando se constituye en documento"
   },
   {
     id: 1,
     image: logo,
     subtitle: "Colombia",
     title: "Valle de Florida",
-    description: "Un bien posee valor histórico cuando se constituye en documento o testimonio para la reconstrucción de la historia, así como para el conocimiento científico"
+    description: "Un bien posee valor histórico cuando se constituye en documento"
   },
   {
     id: 1,
     image: logo,
     subtitle: "Colombia",
     title: "Valle de Florida",
-    description: "Un bien posee valor histórico cuando se constituye en documento o testimonio para la reconstrucción de la historia, así como para el conocimiento científico"
+    description: "Un bien posee valor histórico cuando se constituye en documento"
   },
   {
     id: 1,
     image: logo,
     subtitle: "Colombia",
     title: "Valle de Florida",
-    description: "Un bien posee valor histórico cuando se constituye en documento o testimonio para la reconstrucción de la historia, así como para el conocimiento científico"
+    description: "Un bien posee valor histórico cuando se constituye en documento"
   },
   {
     id: 1,
     image: logo,
     subtitle: "Colombia",
     title: "Valle de Florida",
-    description: "Un bien posee valor histórico cuando se constituye en documento o testimonio para la reconstrucción de la historia, así como para el conocimiento científico"
+    description: "Un bien posee valor histórico cuando se constituye en documento"
   },
-  {
-    id: 1,
-    image: logo,
-    subtitle: "Colombia",
-    title: "Valle de Florida",
-    description: "Un bien posee valor histórico cuando se constituye en documento o testimonio para la reconstrucción de la historia, así como para el conocimiento científico"
-  },
-  
   // ... más testimonios
 ];
 
