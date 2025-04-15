@@ -8,7 +8,61 @@ import FeaturesSection from './components/FeatureSection';
 import LegacySection from './components/LegacySection';
 import ScrollingSection from './components/ScrollingSection';
 
-import myLocalImage from './assets/icono_logo.webp';
+import logo from './assets/logo_florida.webp'
+
+const testimoniosData = [
+  {
+    id: 1,
+    image: logo,
+    subtitle: "Colombia",
+    title: "Valle de Florida",
+    description: "Un bien posee valor histórico cuando se constituye en documento o testimonio para la "
+  },
+  {
+    id: 1,
+    image: logo,
+    subtitle: "Colombia",
+    title: "Valle de Florida",
+    description: "Un bien posee valor histórico cuando se constituye en documento o testimonio para la reconstrucción de la historia, así como para el conocimiento científico"
+  },
+  {
+    id: 1,
+    image: logo,
+    subtitle: "Colombia",
+    title: "Valle de Florida",
+    description: "Un bien posee valor histórico cuando se constituye en documento o testimonio para la reconstrucción de la historia, así como para el conocimiento científico"
+  },
+  {
+    id: 1,
+    image: logo,
+    subtitle: "Colombia",
+    title: "Valle de Florida",
+    description: "Un bien posee valor histórico cuando se constituye en documento o testimonio para la reconstrucción de la historia, así como para el conocimiento científico"
+  },
+  {
+    id: 1,
+    image: logo,
+    subtitle: "Colombia",
+    title: "Valle de Florida",
+    description: "Un bien posee valor histórico cuando se constituye en documento o testimonio para la reconstrucción de la historia, así como para el conocimiento científico"
+  },
+  {
+    id: 1,
+    image: logo,
+    subtitle: "Colombia",
+    title: "Valle de Florida",
+    description: "Un bien posee valor histórico cuando se constituye en documento o testimonio para la reconstrucción de la historia, así como para el conocimiento científico"
+  },
+  {
+    id: 1,
+    image: logo,
+    subtitle: "Colombia",
+    title: "Valle de Florida",
+    description: "Un bien posee valor histórico cuando se constituye en documento o testimonio para la reconstrucción de la historia, así como para el conocimiento científico"
+  },
+  
+  // ... más testimonios
+];
 
 function App() {
   return (
@@ -21,13 +75,23 @@ function App() {
         <PurposeSection />
         <FeaturesSection />
         <LegacySection />
-        <TiltedCard 
-          image={myLocalImage}
-          subtitle="Colombia"
-          title="Unidad VI"
-          description="Esta es la información detallada de la Unidad VI, destacando su relevancia histórica y cultural en la región."
+        <ScrollingSection 
+          testimonials={testimoniosData} 
+          title="Patrimonio Natural"
         />
-        {/* <ScrollingSection /> */}
+        <ScrollingSection 
+          testimonials={testimoniosData} 
+          title="Cultural Material Inmueble"
+        />
+        <ScrollingSection 
+          testimonials={testimoniosData} 
+          title="Cultural Material Mueble"
+        />
+                <ScrollingSection 
+          testimonials={testimoniosData} 
+          title="Cultural Inmaterial"
+        />
+        <FeaturesSection />
         <Footer />
       </div>
     </main>
