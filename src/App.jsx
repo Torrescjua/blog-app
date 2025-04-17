@@ -7,55 +7,9 @@ import PurposeSection from './components/PurposeSection';
 import FeaturesSection from './components/FeatureSection';
 import LegacySection from './components/LegacySection';
 import ScrollingSection from './components/ScrollingSection';
+import InterviewsCarousel from './components/InterviewsCarousel'
 
-import logo from './assets/logo_florida.webp'
-import TestimonialsSection from './components/TestimonialsSection';
-
-const testimoniosData = [
-  {
-    id: 1,
-    image: logo,
-    subtitle: "Colombia",
-    title: "Valle de Florida",
-    description: "Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento tUn bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento tUn bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento tUn bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento tUn bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento ts, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento tUn bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento tUn bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento tUn bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento tUn bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento tUn bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento tUn bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento tUn bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento tUn bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento tUn bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento tUn bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento tUn bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento tUn bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento tUn bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en documento t, Un bien posee valor histórico cuando se constituye en"
-  },
-  {
-    id: 2,
-    image: logo,
-    subtitle: "Colombia",
-    title: "Valle de Florida",
-    description: "Un bien posee valor histórico cuando se constituye en documento"
-  },
-  {
-    id: 3,
-    image: logo,
-    subtitle: "Colombia",
-    title: "Valle de Florida",
-    description: "Un bien posee valor histórico cuando se constituye en documento"
-  },
-  {
-    id: 4,
-    image: logo,
-    subtitle: "Colombia",
-    title: "Valle de Florida",
-    description: "Un bien posee valor histórico cuando se constituye en documento"
-  },
-  {
-    id: 5,
-    image: logo,
-    subtitle: "Colombia",
-    title: "Valle de Florida",
-    description: "Un bien posee valor histórico cuando se constituye en documento"
-  },
-  {
-    id: 6,
-    image: logo,
-    subtitle: "Colombia",
-    title: "Valle de Florida",
-    description: "Un bien posee valor histórico cuando se constituye en documento"
-  },
-  // ... más testimonios
-];
+import {testimonialData} from './data/testimonialData'
 
 function App() {
   return (
@@ -69,23 +23,22 @@ function App() {
         <FeaturesSection />
         <LegacySection />
         <ScrollingSection 
-          testimonials={testimoniosData} 
+          testimonials={testimonialData} 
           title="Patrimonio Natural"
         />
         <ScrollingSection 
-          testimonials={testimoniosData} 
+          testimonials={testimonialData} 
           title="Cultural Material Inmueble"
         />
         <ScrollingSection 
-          testimonials={testimoniosData} 
+          testimonials={testimonialData} 
           title="Cultural Material Mueble"
         />
-                <ScrollingSection 
-          testimonials={testimoniosData} 
+        <ScrollingSection 
+          testimonials={testimonialData} 
           title="Cultural Inmaterial"
         />
-        <FeaturesSection />
-        <TestimonialsSection />
+        <InterviewsCarousel />
         <Footer />
       </div>
     </main>
