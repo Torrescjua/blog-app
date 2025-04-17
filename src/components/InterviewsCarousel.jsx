@@ -9,7 +9,7 @@ const InterviewsCarousel = ({
   title = "Voces de la comunidad",
   subtitle = "Percepción del patrimonio natural y cultural de Florida"
 }) => {
-  // 🔒 Desactivar por ausencia de datos
+  
   if (!interviews || interviews.length === 0) return null;
 
   const [currentIndex, setCurrentIndex] = useState(0);
