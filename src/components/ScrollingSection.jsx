@@ -51,7 +51,7 @@ const ScrollingSection = ({
       };
       
       const scrollElement = scrollRef.current;
-      scrollElement.addEventListener('scroll', handleScroll);
+      scrollElement.addEventListener('scroll', handleScroll, { passive: true });
       
       return () => {
         scrollElement.removeEventListener('scroll', handleScroll);
@@ -74,8 +74,7 @@ const ScrollingSection = ({
     const cardRef = cardRefs.current[id];
     if (!cardRef || !cardRef.current) return;
     
-    // Esperar a que los cambios de DOM se hayan aplicado
-    setTimeout(() => {
+    requestAnimationFrame(() => {
       const card = cardRef.current;
       const scrollContainer = scrollRef.current;
       
@@ -92,7 +91,7 @@ const ScrollingSection = ({
         left: scrollTo,
         behavior: 'smooth'
       });
-    }, 20);
+    });
   };
 
   // Expandir/contraer tarjeta con animación
@@ -101,20 +100,17 @@ const ScrollingSection = ({
     if (expandedItem && expandedItem.id === item.id) {
       setIsClosing(true);
       
-      // Mantenemos la posición basada en el ID cuando cerramos
       setTimeout(() => {
         setExpandedItem(null);
         setIsClosing(false);
-        // Esperamos a que la animación de cierre termine para mantener la posición
-        setTimeout(() => maintainScrollPosition(item.id), 100);
+        requestAnimationFrame(() => maintainScrollPosition(item.id));
       }, 300);
     } else {
       // Establecemos la nueva tarjeta expandida
       setExpandedItem(item);
       setIsClosing(false);
       
-      // Mantenemos la posición basada en el ID cuando abrimos
-      setTimeout(() => maintainScrollPosition(item.id), 100);
+      requestAnimationFrame(() => maintainScrollPosition(item.id));
     }
   };
 
@@ -127,13 +123,13 @@ const ScrollingSection = ({
     animate: (i) => ({
       rotateZ: [
         i % 2 === 0 ? -2 : 2,
-        i % 2 === 0 ? -5 : 5,
+        i % 2 === 0 ? -4 : 4,
         i % 2 === 0 ? -2 : 2
       ],
-      y: [0, -5, 0],
+      y: [0, -4, 0],
       transition: {
-        rotateZ: { duration: 0.5, ease: "easeOut" },
-        y: { duration: 0.5, ease: "easeOut" }
+        rotateZ: { duration: 0.3, ease: "easeInOut" },
+        y: { duration: 0.3, ease: "easeInOut" }
       }
     }),
     expanded: {
@@ -141,52 +137,95 @@ const ScrollingSection = ({
       y: 0,
       transition: {
         duration: 0.3,
-        ease: "easeOut"
+        ease: "easeInOut"
       }
     }
   };
 
   // Componente para la tarjeta expandida
   const ExpandedCard = ({ item }) => {
+    // Ref para el contenedor de texto
+    const textContentRef = useRef(null);
+
+    // Ajuste de padding para dispositivos móviles
+    const contentPadding = isMobile ? "pb-8" : "";
+
     return (
       <motion.div 
-        className="bg-white rounded-lg shadow-lg overflow-hidden"
-        initial={{ width: '16rem', opacity: 0.7, scale: 0.9 }}
+        className="bg-white rounded-lg shadow-lg overflow-hidden origin-center"
+        initial={{ 
+          width: '16rem',  // Comienza con el tamaño original
+          opacity: 0.95,
+          scaleX: 1,
+          scaleY: 1,
+          height: "auto", // Altura automática inicial
+          rotateZ: item.id % 2 === 0 ? -2 : 2  // Mantiene la rotación inicial de la tarjeta
+        }}
         animate={{ 
           width: isMobile ? '16rem' : '42rem', 
           opacity: 1,
-          rotateZ: 0,
-          scale: 1
+          scaleX: 1,
+          scaleY: 1,
+          height: "auto", // Mantiene altura automática en estado expandido también
+          rotateZ: 0  // Endereza la tarjeta al expandirse
         }}
         exit={{ 
-          width: '16rem', 
-          opacity: 0,
-          scale: 0.9,
+          width: '16rem',
+          rotateZ: item.id % 2 === 0 ? -2 : 2,  // Vuelve a la rotación original al cerrarse
+          scaleY: 0.95,
+          opacity: 0.9,
           transition: { 
             duration: 0.3, 
-            ease: "easeOut" 
+            ease: "easeInOut" 
           }
         }}
         transition={{ 
-          duration: 0.3, 
-          ease: "easeOut"
+          type: "spring",
+          stiffness: 200,
+          damping: 20,
+          duration: 0.4
         }}
         ref={expandedCardRef}
-        variants={cardVariants}
-        whileInView="expanded"
+        style={{ 
+          willChange: 'transform, width, opacity',
+          transformOrigin: 'center top',
+          transform: 'translateZ(0)',
+          backfaceVisibility: 'hidden',
+          maxHeight: isMobile ? "30rem" : "24rem" // Incrementado para móvil
+        }}
       >
         <div className={`flex ${isMobile ? 'flex-col' : 'flex-row'} items-stretch relative`}>
-          {/* Imagen */}
-          <div className={isMobile ? "w-full h-56" : "w-64"}>
+          {/* Imagen con animación y margen añadido */}
+          <motion.div 
+            className={`${isMobile ? "w-full h-56" : "w-64 h-full"} p-2`} // Añadido padding para crear espacio
+            initial={{ opacity: 0.9 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.1 }}
+            style={{ 
+              background: "var(--color-10)/5", // Fondo sutil para la sección de la imagen
+            }}
+          >
             <img 
               src={item.image} 
               alt={item.title} 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover rounded-md shadow-sm" // Añadido rounded y shadow
+              loading="lazy"
             />
-          </div>
+          </motion.div>
           
-          {/* Contenido */}
-          <div className="flex-1 p-6 flex flex-col max-h-96 overflow-y-auto">
+          {/* Contenido con animación - Mejorado para scroll completo en móviles */}
+          <motion.div 
+            ref={textContentRef}
+            className={`flex-1 p-6 ${contentPadding} flex flex-col overflow-y-auto`}
+            style={{ 
+              maxHeight: isMobile ? "20rem" : "24rem", // Altura ajustada
+              WebkitOverflowScrolling: "touch", // Mejora el scroll en iOS
+              overscrollBehavior: "contain" // Previene scroll chaining
+            }}
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.15, duration: 0.3 }}
+          >
             <button
               onClick={() => toggleExpand(item)}
               className="absolute top-3 right-3 p-1 rounded-full hover:bg-gray-200/20"
@@ -195,10 +234,35 @@ const ScrollingSection = ({
               <X size={20} />
             </button>
             
-            <p className="text-sm mb-2">{item.subtitle}</p>
-            <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-            <p>{item.description}</p>
-          </div>
+            <motion.p 
+              className="text-sm mb-2"
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.2 }}
+            >
+              {item.subtitle}
+            </motion.p>
+            
+            <motion.h3 
+              className="text-xl font-bold mb-3"
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.25, duration: 0.2 }}
+            >
+              {item.title}
+            </motion.h3>
+            
+            <motion.div
+              className="mb-6" // Asegura espacio después del texto
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.2 }}
+            >
+              <p>{item.description}</p>
+              {/* Div invisible para asegurar espacio de scroll en móviles */}
+              {isMobile && <div className="h-4"></div>}
+            </motion.div>
+          </motion.div>
         </div>
       </motion.div>
     );
@@ -210,7 +274,7 @@ const ScrollingSection = ({
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           className="text-3xl font-bold text-center mb-12"
           style={{ color: 'var(--color-main)' }}
         >
@@ -225,9 +289,16 @@ const ScrollingSection = ({
             </span>
             <motion.div 
               animate={{ x: [0, 10, 0] }}
-              transition={{ repeat: Infinity, duration: 1.5 }}
+              transition={{ 
+                repeat: Infinity, 
+                duration: 1, 
+                repeatType: "reverse" 
+              }}
               className="w-6 h-6 flex items-center justify-center"
-              style={{ color: 'var(--color-1)' }}
+              style={{ 
+                color: 'var(--color-1)',
+                willChange: 'transform'
+              }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-4 h-4">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -244,11 +315,16 @@ const ScrollingSection = ({
             style={{ backgroundColor: 'var(--color-6)' }}
           ></div>
           
-          {/* Contenedor con scroll horizontal */}
+          {/* Contenedor con scroll horizontal - Configuración mejorada para permitir scroll vertical */}
           <div 
             ref={scrollRef} 
             className="overflow-x-auto pb-12 pt-4 hide-scrollbar"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            style={{ 
+              scrollbarWidth: 'none', 
+              msOverflowStyle: 'none',
+              touchAction: 'pan-x', // Permitimos el scroll horizontal pero no bloqueamos el vertical
+              overscrollBehaviorX: 'contain' // Contiene el overscroll horizontal
+            }}
           >
             {/* Contenedor de tarjetas */}
             <div 
@@ -291,9 +367,15 @@ const ScrollingSection = ({
                         viewport={{ once: false, amount: 0.3 }}
                         onClick={() => toggleExpand(item)}
                         transition={{ 
-                          duration: 0.6, 
-                          ease: "easeOut"
+                          duration: 0.4, 
+                          ease: "easeInOut" 
                         }}
+                        style={{ 
+                          willChange: 'transform',
+                          transform: 'translateZ(0)',
+                          backfaceVisibility: 'hidden'
+                        }}
+                        layout={false}
                       >
                         {/* La tarjeta original manteniendo su estilo */}
                         <div className="w-64 shadow-lg">
@@ -302,7 +384,7 @@ const ScrollingSection = ({
                             subtitle={item.subtitle}
                             title={item.title}
                             description={item.description}
-                            tiltDegree={0}
+                            tiltDegree={item.id % 2 === 0 ? -2 : 2}
                             hoverEffect={false}
                           />
                         </div>

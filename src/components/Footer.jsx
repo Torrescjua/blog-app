@@ -102,7 +102,7 @@ const Footer = () => {
               Copyright © {new Date().getFullYear()} Raíces de Florida
             </p>
 {/*             <p className="text-[var(--color-3)] text-sm">
-              Creado por ...
+              Creado por Juan Torres
             </p> */}
           </div>
         </div>
