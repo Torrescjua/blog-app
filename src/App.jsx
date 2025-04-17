@@ -19,35 +19,35 @@ const testimoniosData = [
     description: "Un bien posee valor histórico cuando se constituye en documento"
   },
   {
-    id: 1,
+    id: 2,
     image: logo,
     subtitle: "Colombia",
     title: "Valle de Florida",
     description: "Un bien posee valor histórico cuando se constituye en documento"
   },
   {
-    id: 1,
+    id: 3,
     image: logo,
     subtitle: "Colombia",
     title: "Valle de Florida",
     description: "Un bien posee valor histórico cuando se constituye en documento"
   },
   {
-    id: 1,
+    id: 4,
     image: logo,
     subtitle: "Colombia",
     title: "Valle de Florida",
     description: "Un bien posee valor histórico cuando se constituye en documento"
   },
   {
-    id: 1,
+    id: 5,
     image: logo,
     subtitle: "Colombia",
     title: "Valle de Florida",
     description: "Un bien posee valor histórico cuando se constituye en documento"
   },
   {
-    id: 1,
+    id: 6,
     image: logo,
     subtitle: "Colombia",
     title: "Valle de Florida",
