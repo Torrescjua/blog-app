@@ -179,154 +179,162 @@ const InterviewsCarousel = ({
           </p>
         </div>
 
-        {/* Carrusel */}
+        {/* Carrusel con botones de navegación en posiciones fijas */}
         <div className="relative">
-          {/* Flecha izquierda */}
-          <div className="absolute inset-y-0 left-0 flex items-center -ml-4 sm:-ml-6 z-10">
-            <button
-              onClick={prev}
-              disabled={interviews.length <= visibleCount}
-              className={`bg-white rounded-full p-2 shadow-md focus:outline-none transform transition-transform duration-300 ${
-                interviews.length <= visibleCount
-                  ? "opacity-50 cursor-not-allowed"
-                  : "hover:bg-gray-50 hover:scale-110"
-              }`}
-              aria-label="Anterior"
-            >
-              <ChevronLeft size={24} className="text-gray-600" />
-            </button>
-          </div>
-
-          {/* Flecha derecha */}
-          <div className="absolute inset-y-0 right-0 flex items-center -mr-4 sm:-mr-6 z-10">
-            <button
-              onClick={next}
-              disabled={interviews.length <= visibleCount}
-              className={`bg-white rounded-full p-2 shadow-md focus:outline-none transform transition-transform duration-300 ${
-                interviews.length <= visibleCount
-                  ? "opacity-50 cursor-not-allowed"
-                  : "hover:bg-gray-50 hover:scale-110"
-              }`}
-              aria-label="Siguiente"
-            >
-              <ChevronRight size={24} className="text-gray-600" />
-            </button>
-          </div>
-
-          {/* Tarjetas */}
-          <div className="overflow-hidden">
-            <div className="flex gap-6">
-              <AnimatePresence initial={false} custom={direction} mode="popLayout">
-                {visibleInterviews.map((item, idx) => (
-                  <motion.div
-                    key={item.id ?? idx}
-                    custom={direction}
-                    variants={slideVariants}
-                    initial="enter"
-                    animate="center"
-                    exit="exit"
-                    className={`${
-                      visibleCount === 3 ? "sm:w-1/3" : visibleCount === 2 ? "sm:w-1/2" : "w-full"
-                    } w-full flex-shrink-0`}
+          {/* Contenedor para el carrusel y los botones */}
+          <div className="relative h-full">
+            {/* Botones de navegación en posiciones fijas */}
+            <div className="absolute top-0 bottom-0 left-0 right-0 pointer-events-none">
+              <div className="relative h-full max-w-6xl mx-auto">
+                {/* Flecha izquierda - posición fija */}
+                <div className="absolute top-1/2 left-0 transform -translate-y-1/2 z-20 pointer-events-auto">
+                  <button
+                    onClick={prev}
+                    disabled={interviews.length <= visibleCount}
+                    className={`bg-white rounded-full p-2 shadow-lg focus:outline-none transform transition-transform duration-300 ${
+                      interviews.length <= visibleCount
+                        ? "opacity-50 cursor-not-allowed"
+                        : "hover:bg-gray-50 hover:scale-110"
+                    }`}
+                    aria-label="Anterior"
                   >
-                    <div className="bg-white border border-gray-100 rounded-lg shadow-lg overflow-hidden h-full relative" 
-                         style={{ fontFamily: "var(--font-body)" }}>
-                      
-                      {/* Banner superior con clasificación */}
-                      <div className="bg-gray-50 px-4 py-2 flex justify-between items-center border-b border-gray-100">
-                        <div className="flex items-center">
-                          <Quote size={16} className="text-[var(--color-main)] rotate-180 mr-2" />
-                          {renderClassificationTag(item.classification)}
-                        </div>
-                        <div className="text-xs text-gray-500">
-                          {item.date && (
-                            <div className="flex items-center">
-                              <Calendar size={12} className="mr-1" />
-                              <span>{item.date}</span>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                      
-                      {/* Contenido principal */}
-                      <div className="p-6">
-                        <div className="mb-6">
-                          <p className="text-gray-700 italic mb-4">"{item.definition}"</p>
-                          
-                          {item.sites && (
-                            <div className="mt-3">
-                              <p className="font-semibold text-gray-900 text-sm">Sitios de interés patrimonial:</p>
-                              <p className="text-gray-700 text-sm">{item.sites}</p>
-                            </div>
-                          )}
-                          
-                          {item.route && (
-                            <div className="mt-3">
-                              <p className="font-semibold text-gray-900 text-sm">Ruta turística sugerida:</p>
-                              <p className="text-gray-700 text-sm">{item.route}</p>
-                            </div>
-                          )}
-                          
-                          {renderTourismPotential(item.tourismPotential)}
-                          
-                          {item.value && (
-                            <div className="mt-2">
-                              <span className="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium bg-indigo-50 text-indigo-700">
-                                {item.value}
-                              </span>
-                            </div>
-                          )}
-                        </div>
+                    <ChevronLeft size={24} className="text-gray-600" />
+                  </button>
+                </div>
+                
+                {/* Flecha derecha - posición fija */}
+                <div className="absolute top-1/2 right-0 transform -translate-y-1/2 z-20 pointer-events-auto">
+                  <button
+                    onClick={next}
+                    disabled={interviews.length <= visibleCount}
+                    className={`bg-white rounded-full p-2 shadow-lg focus:outline-none transform transition-transform duration-300 ${
+                      interviews.length <= visibleCount
+                        ? "opacity-50 cursor-not-allowed"
+                        : "hover:bg-gray-50 hover:scale-110"
+                    }`}
+                    aria-label="Siguiente"
+                  >
+                    <ChevronRight size={24} className="text-gray-600" />
+                  </button>
+                </div>
+              </div>
+            </div>
 
-                        {/* Información del autor */}
-                        <div className="border-t border-gray-100 pt-4 mt-2">
+            {/* Tarjetas */}
+            <div className="overflow-hidden px-10"> {/* Añadimos padding para dejar espacio a los botones */}
+              <div className="flex gap-6">
+                <AnimatePresence initial={false} custom={direction} mode="popLayout">
+                  {visibleInterviews.map((item, idx) => (
+                    <motion.div
+                      key={item.id ?? idx}
+                      custom={direction}
+                      variants={slideVariants}
+                      initial="enter"
+                      animate="center"
+                      exit="exit"
+                      className={`${
+                        visibleCount === 3 ? "sm:w-1/3" : visibleCount === 2 ? "sm:w-1/2" : "w-full"
+                      } w-full flex-shrink-0`}
+                    >
+                      <div className="bg-white border border-gray-100 rounded-lg shadow-lg overflow-hidden h-full relative" 
+                           style={{ fontFamily: "var(--font-body)" }}>
+                        
+                        {/* Banner superior con clasificación */}
+                        <div className="bg-gray-50 px-4 py-2 flex justify-between items-center border-b border-gray-100">
                           <div className="flex items-center">
-                            <div
-                              className="mr-3 bg-[var(--color-main)] text-white rounded-full w-10 h-10 flex items-center justify-center uppercase text-sm font-bold"
-                              style={{ fontFamily: "var(--font-title)" }}
-                            >
-                              {item.author
-                                ?.split(" ")
-                                .slice(0, 2)
-                                .map((n) => n?.[0] || "")
-                                .join("")}
-                            </div>
-                            <div>
+                            <Quote size={16} className="text-[var(--color-main)] rotate-180 mr-2" />
+                            {renderClassificationTag(item.classification)}
+                          </div>
+                          <div className="text-xs text-gray-500">
+                            {item.date && (
                               <div className="flex items-center">
-                                <h4
-                                  className="font-medium text-gray-900"
-                                  style={{ fontFamily: "var(--font-title)" }}
-                                >
-                                  {item.author}
-                                </h4>
-                                {item.age && <span className="text-gray-500 text-xs ml-2">{item.age} años</span>}
+                                <Calendar size={12} className="mr-1" />
+                                <span>{item.date}</span>
                               </div>
-                              <div className="flex flex-col gap-1 mt-1">
-                                {item.location && (
-                                  <div className="flex items-center text-xs text-gray-600">
-                                    <MapPin size={10} className="mr-1" />
-                                    <span>{item.location}</span>
-                                    {item.yearsInFlorida && (
-                                      <span className="ml-1 text-gray-500">
-                                        ({typeof item.yearsInFlorida === 'number' ? `${item.yearsInFlorida} años en Florida` : item.yearsInFlorida})
-                                      </span>
-                                    )}
-                                  </div>
-                                )}
-                                {item.sector && (
-                                  <div className="mt-1">
-                                    {renderSectorTag(item.sector)}
-                                  </div>
-                                )}
+                            )}
+                          </div>
+                        </div>
+                        
+                        {/* Contenido principal */}
+                        <div className="p-6">
+                          <div className="mb-6">
+                            <p className="text-gray-700 italic mb-4">"{item.definition}"</p>
+                            
+                            {item.sites && (
+                              <div className="mt-3">
+                                <p className="font-semibold text-gray-900 text-sm">Sitios de interés patrimonial:</p>
+                                <p className="text-gray-700 text-sm">{item.sites}</p>
+                              </div>
+                            )}
+                            
+                            {item.route && (
+                              <div className="mt-3">
+                                <p className="font-semibold text-gray-900 text-sm">Ruta turística sugerida:</p>
+                                <p className="text-gray-700 text-sm">{item.route}</p>
+                              </div>
+                            )}
+                            
+                            {renderTourismPotential(item.tourismPotential)}
+                            
+                            {item.value && (
+                              <div className="mt-2">
+                                <span className="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium bg-indigo-50 text-indigo-700">
+                                  {item.value}
+                                </span>
+                              </div>
+                            )}
+                          </div>
+
+                          {/* Información del autor */}
+                          <div className="border-t border-gray-100 pt-4 mt-2">
+                            <div className="flex items-center">
+                              <div
+                                className="mr-3 bg-[var(--color-main)] text-white rounded-full w-10 h-10 flex items-center justify-center uppercase text-sm font-bold"
+                                style={{ fontFamily: "var(--font-title)" }}
+                              >
+                                {item.author
+                                  ?.split(" ")
+                                  .slice(0, 2)
+                                  .map((n) => n?.[0] || "")
+                                  .join("")}
+                              </div>
+                              <div>
+                                <div className="flex items-center">
+                                  <h4
+                                    className="font-medium text-gray-900"
+                                    style={{ fontFamily: "var(--font-title)" }}
+                                  >
+                                    {item.author}
+                                  </h4>
+                                  {item.age && <span className="text-gray-500 text-xs ml-2">{item.age} años</span>}
+                                </div>
+                                <div className="flex flex-col gap-1 mt-1">
+                                  {item.location && (
+                                    <div className="flex items-center text-xs text-gray-600">
+                                      <MapPin size={10} className="mr-1" />
+                                      <span>{item.location}</span>
+                                      {item.yearsInFlorida && (
+                                        <span className="ml-1 text-gray-500">
+                                          ({typeof item.yearsInFlorida === 'number' ? `${item.yearsInFlorida} años en Florida` : item.yearsInFlorida})
+                                        </span>
+                                      )}
+                                    </div>
+                                  )}
+                                  {item.sector && (
+                                    <div className="mt-1">
+                                      {renderSectorTag(item.sector)}
+                                    </div>
+                                  )}
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </AnimatePresence>
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+              </div>
             </div>
           </div>
         </div>
