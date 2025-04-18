@@ -101,7 +101,7 @@ const LegacySection = () => {
               className="flex items-center gap-2"
             >
               <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center">
-                <div className="w-2.5 h-2.5 rounded-full bg-green-600"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-[var(--color-1)]"></div>
               </div>
               <span className="text-gray-600">Protege el legado natural</span>
             </motion.div>
@@ -110,7 +110,7 @@ const LegacySection = () => {
               className="flex items-center gap-2"
             >
               <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center">
-                <div className="w-2.5 h-2.5 rounded-full bg-green-600"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-[var(--color-1)]"></div>
               </div>
               <span className="text-gray-600">Conserva la memoria cultural</span>
             </motion.div>
@@ -128,6 +128,7 @@ const LegacySection = () => {
               variants={fadeIn('up', 0.2 * (index + 1))}
               whileHover={{ scale: 1.05 }}
               className="bg-white max-w-72 cursor-pointer rounded-2xl p-6 hover:shadow-xl transition-shadow duration-300"
+              onClick={() => handleOpenModal(index)}
             >
               <motion.div 
                 variants={fadeIn('down', 0.2 * (index + 1))}
@@ -153,7 +154,7 @@ const LegacySection = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => handleOpenModal(index)}
-                className="text-green-600 font-medium hover:text-green-700 transition-colors"
+                className="text-[var(--color-1)] font-medium hover:text-green-900 transition-colors"
               >
                 APRENDE MÁS
               </motion.button>
@@ -177,7 +178,7 @@ const LegacySection = () => {
             >
               ✕
             </button>
-            <h3 className="text-2xl font-bold mb-4 text-green-700">
+            <h3 className="text-2xl font-bold mb-4 text-[var(--color-1)]">
               {selectedPatrimony.title}
             </h3>
             <p className="text-gray-700 mb-6">
@@ -185,7 +186,7 @@ const LegacySection = () => {
             </p>
             <button
               onClick={handleCloseModal}
-              className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors"
+              className="bg-[var(--color-1)] text-white px-6 py-2 rounded-lg hover:bg-green-900 transition-colors"
             >
               Cerrar
             </button>

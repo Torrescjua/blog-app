@@ -8,7 +8,7 @@ const Navbar = ({ isMapVisible, onCTAClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('#home');
 
-  // Enlaces para la vista de blog (normal)
+  /* -------- enlaces -------- */
   const blogNavLinks = [
     { href: '#home', label: 'Inicio' },
     { href: '#about', label: 'Nuestro Propósito' },
@@ -16,52 +16,66 @@ const Navbar = ({ isMapVisible, onCTAClick }) => {
     { href: '#testimonials', label: 'Testimonios' },
   ];
 
-  // Enlaces para la vista de mapa
   const mapNavLinks = [
-/*     { href: '#routes', label: 'Todas las Rutas' },
-    { href: '#natural', label: 'Patrimonio Natural' },
+    { href: '#routes', label: 'Todas las Rutas' },
+/*     { href: '#natural', label: 'Patrimonio Natural' },
     { href: '#cultural', label: 'Patrimonio Cultural' },
     { href: '#favorites', label: 'Mis Favoritos' }, */
   ];
 
-  // Reiniciar el enlace activo cuando cambiamos entre mapa y blog
   useEffect(() => {
-    // Cuando cambiamos de vista, establecer el primer enlace como activo
     setActiveLink(isMapVisible ? '#routes' : '#home');
   }, [isMapVisible]);
 
-  // Seleccionar navLinks según el estado actual
   const navLinks = isMapVisible ? mapNavLinks : blogNavLinks;
-
-  // Cambia texto y color según estado
   const buttonText = isMapVisible ? 'Ir al blog' : 'Rutas Turísticas';
-  const buttonBg = isMapVisible ? 'bg-[var(--color-10)]' : 'bg-[var(--color-1)]';
+  const buttonBg   = isMapVisible ? 'bg-[var(--color-10)]' : 'bg-[var(--color-1)]';
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-[var(--color-2)] backdrop-blur-sm z-50 border-b border-gray-100 shadow-sm">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between">
-        {/* Logo */}
-        <div className="flex items-center h-full cursor-pointer">
-          <img src={logo} alt="Raíces de Florida" className="h-auto max-h-full object-contain" />
-        </div>
+    <motion.nav
+      variants={fadeIn('down', 0.2)}
+      initial="hidden"
+      animate="show"
+      className="fixed top-0 left-0 right-0 bg-[var(--color-2)] backdrop-blur-sm z-50
+                 border-b border-gray-100 shadow-sm"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-20
+                      flex items-center justify-between">
+        {/* -------- logo -------- */}
+        <motion.div
+          variants={fadeIn('right', 0.3)}
+          whileHover={{ scale: 0.85 }}
+          className="flex items-center h-full cursor-pointer"
+          onClick={() => window.location.reload()} 
+        >
+          <img
+            src={logo}
+            alt="Raíces de Florida"
+            className="h-auto max-h-full object-contain"
+          />
+        </motion.div>
 
-        {/* Botón móvil */}
-        <button
+        {/* -------- botón móvil -------- */}
+        <motion.button
+          variants={fadeIn('left', 0.3)}
           className="md:hidden p-2"
-          onClick={() => setIsMenuOpen(open => !open)}
+          onClick={() => setIsMenuOpen((open) => !open)}
         >
           {isMenuOpen
-            ? <HiX className="h-6 w-6 text-[var(--color-1)]" />
+            ? <HiX  className="h-6 w-6 text-[var(--color-1)]" />
             : <HiMenu className="h-6 w-6 text-[var(--color-1)]" />
           }
-        </button>
+        </motion.button>
 
-        {/* Enlaces y CTA escritorio */}
-        <div className="hidden md:flex items-center space-x-10">
-          {/* Enlaces de blog */}
-          {!isMapVisible && blogNavLinks.map((link, i) => (
-            <a
-              key={`blog-${link.href}`}
+        {/* -------- enlaces + CTA escritorio -------- */}
+        <motion.div
+          variants={fadeIn('down', 0.3)}
+          className="hidden md:flex items-center space-x-10"
+        >
+          {navLinks.map((link, i) => (
+            <motion.a
+              key={link.href}
+              variants={fadeIn('down', 0.1 * (i + 1))}
               href={link.href}
               onClick={() => setActiveLink(link.href)}
               className={`
@@ -72,28 +86,15 @@ const Navbar = ({ isMapVisible, onCTAClick }) => {
                   ? 'text-[var(--color-1)] after:w-full'
                   : 'text-gray-600 hover:text-gray-900'}
               `}
-            >{link.label}</a>
-          ))}
-          
-          {/* Enlaces de mapa */}
-          {isMapVisible && mapNavLinks.map((link, i) => (
-            <a
-              key={`map-${link.href}`}
-              href={link.href}
-              onClick={() => setActiveLink(link.href)}
-              className={`
-                relative text-sm font-medium
-                after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0
-                after:bg-[var(--color-1)] after:transition-all
-                ${activeLink === link.href
-                  ? 'text-[var(--color-1)] after:w-full'
-                  : 'text-gray-600 hover:text-gray-900'}
-              `}
-            >{link.label}</a>
+            >
+              {link.label}
+            </motion.a>
           ))}
 
-          {/* CTA botón */}
-          <button
+          <motion.button
+            variants={fadeIn('left', 0.3)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={onCTAClick}
             className={`
               ${buttonBg} text-[var(--color-2)]
@@ -102,17 +103,26 @@ const Navbar = ({ isMapVisible, onCTAClick }) => {
             `}
           >
             {buttonText}
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       </div>
 
-      {/* Menú móvil */}
+      {/* -------- menú móvil -------- */}
       {isMenuOpen && (
-        <div className="md:hidden bg-[var(--color-2)] border-t border-gray-100 py-4">
-          <div className="container mx-auto px-4 space-y-4">
+        <motion.div
+          variants={fadeIn('down', 0.2)}
+          initial="hidden"
+          animate="show"
+          className="md:hidden bg-[var(--color-2)] border-t border-gray-100 py-4"
+        >
+          <motion.div
+            variants={fadeIn('down', 0.3)}
+            className="container mx-auto px-4 space-y-4"
+          >
             {navLinks.map((link, i) => (
-              <a
-                key={`mobile-${link.href}`}
+              <motion.a
+                key={link.href}
+                variants={fadeIn('right', 0.1 * (i + 1))}
                 href={link.href}
                 onClick={() => {
                   setActiveLink(link.href);
@@ -124,11 +134,15 @@ const Navbar = ({ isMapVisible, onCTAClick }) => {
                     ? 'text-[var(--color-1)]'
                     : 'text-gray-600 hover:text-gray-900'}
                 `}
-              >{link.label}</a>
+              >
+                {link.label}
+              </motion.a>
             ))}
 
-            {/* CTA móvil */}
-            <button
+            <motion.button
+              variants={fadeIn('up', 0.4)}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               onClick={() => {
                 setIsMenuOpen(false);
                 onCTAClick();
@@ -141,11 +155,11 @@ const Navbar = ({ isMapVisible, onCTAClick }) => {
               `}
             >
               {buttonText}
-            </button>
-          </div>
-        </div>
+            </motion.button>
+          </motion.div>
+        </motion.div>
       )}
-    </nav>
+    </motion.nav>
   );
 };
 
