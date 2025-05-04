@@ -31,13 +31,42 @@ const Navbar = ({ isMapVisible, onCTAClick }) => {
   const buttonText = isMapVisible ? 'Ir al blog' : 'Rutas Turísticas';
   const buttonBg   = isMapVisible ? 'bg-[var(--color-10)]' : 'bg-[var(--color-1)]';
 
+  // Añadimos efecto para asegurar que el z-index del navbar sea superior al mapa
+  useEffect(() => {
+    // Crear un estilo para asegurar que el navbar está por encima del mapa
+    const style = document.createElement('style');
+    
+    style.innerHTML = `
+      /* Estilos para asegurar que el navbar y su menú desplegable estén por encima del mapa */
+      .leaflet-container {
+        z-index: 10 !important;
+      }
+      
+      /* Asegurar que el navbar tenga un z-index superior al mapa */
+      .nav-container {
+        z-index: 1000 !important;
+      }
+      
+      /* El menú desplegable debe tener un z-index alto */
+      .mobile-menu {
+        z-index: 1000 !important;
+      }
+    `;
+    
+    document.head.appendChild(style);
+    
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
+
   return (
     <motion.nav
       variants={fadeIn('down', 0.2)}
       initial="hidden"
       animate="show"
-      className="fixed top-0 left-0 right-0 bg-[var(--color-2)] backdrop-blur-sm z-50
-                 border-b border-gray-100 shadow-sm"
+      className="fixed top-0 left-0 right-0 bg-[var(--color-2)] backdrop-blur-sm z-[1000]
+                 border-b border-gray-100 shadow-sm nav-container"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-20
                       flex items-center justify-between">
@@ -58,7 +87,7 @@ const Navbar = ({ isMapVisible, onCTAClick }) => {
         {/* -------- botón móvil -------- */}
         <motion.button
           variants={fadeIn('left', 0.3)}
-          className="md:hidden p-2"
+          className="md:hidden p-2 z-[1001]" // Aumentamos el z-index del botón
           onClick={() => setIsMenuOpen((open) => !open)}
         >
           {isMenuOpen
@@ -113,7 +142,8 @@ const Navbar = ({ isMapVisible, onCTAClick }) => {
           variants={fadeIn('down', 0.2)}
           initial="hidden"
           animate="show"
-          className="md:hidden bg-[var(--color-2)] border-t border-gray-100 py-4"
+          className="md:hidden bg-[var(--color-2)] border-t border-gray-100 py-4 z-[1000] mobile-menu"
+          style={{ position: 'relative', zIndex: 1000 }} // Aseguramos alto z-index con estilo inline
         >
           <motion.div
             variants={fadeIn('down', 0.3)}
