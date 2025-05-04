@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Quote, MapPin, Calendar, Star, User } from "lucide-react";
+import { ChevronLeft, ChevronRight, Quote, MapPin, Calendar, Star, User, FileText } from "lucide-react";
 
 import {interviewsData} from '../data/interviewsData'
 
@@ -358,6 +358,27 @@ const InterviewsCarousel = ({
                 aria-label={`Ir a item ${i + 1}`}
               />
             ))}
+        </div>
+        
+        {/* Sección de encuesta */}
+        <div className="mt-12 pt-8 border-t border-gray-200">
+          <div className="bg-blue-50 rounded-lg shadow-sm p-6 text-center">
+            <h3 className="text-2xl font-bold text-gray-900 mb-3" style={{ fontFamily: "var(--font-title)" }}>
+              ¡Tu opinión es importante!
+            </h3>
+            <p className="text-gray-700 mb-6 max-w-2xl mx-auto" style={{ fontFamily: "var(--font-body)" }}>
+              Ayúdanos a mejorar completando nuestra encuesta sobre el patrimonio cultural y natural de Florida.
+            </p>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeWiAMfwBjyrDYLBaXCemIaQjVBiZ_UvtnyLOXPL59LazxaXA/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-[var(--color-main)] hover:bg-[var(--color-main-dark)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-main)] transition-all duration-300 transform hover:scale-105"
+            >
+              <FileText size={20} className="mr-2" />
+              Completar encuesta
+            </a>
+          </div>
         </div>
       </div>
     </section>

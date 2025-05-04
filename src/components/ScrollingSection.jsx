@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import TiltedCard from './TiltedCard';
-import { X } from 'lucide-react';
+import { X, ExternalLink } from 'lucide-react';
 
 const ScrollingSection = ({ 
   testimonials = [], 
@@ -114,6 +114,12 @@ const ScrollingSection = ({
     }
   };
 
+  // Función para abrir el contenido completo en una nueva pestaña
+  const openFullContent = (item, e) => {
+    e.stopPropagation(); // Prevenir que se cierre la tarjeta al hacer click en el botón
+    window.open(item.url || `/blog/${item.id}`, '_blank');
+  };
+
   // Variantes para la animación de las tarjetas individuales
   const cardVariants = {
     initial: (i) => ({
@@ -140,6 +146,44 @@ const ScrollingSection = ({
         ease: "easeInOut"
       }
     }
+  };
+
+  // Componente para la tarjeta normal (no expandida)
+  const SimpleCard = ({ item, index }) => {
+    return (
+      <motion.div 
+        className="cursor-pointer"
+        custom={index}
+        variants={cardVariants}
+        initial="initial"
+        animate={direction.current !== 0 ? "animate" : "initial"}
+        whileInView="animate"
+        viewport={{ once: false, amount: 0.3 }}
+        onClick={() => toggleExpand(item)}
+        transition={{ 
+          duration: 0.4, 
+          ease: "easeInOut" 
+        }}
+        style={{ 
+          willChange: 'transform',
+          transform: 'translateZ(0)',
+          backfaceVisibility: 'hidden'
+        }}
+        layout={false}
+      >
+        {/* La tarjeta original manteniendo su estilo */}
+        <div className="w-64 shadow-lg">
+          <TiltedCard 
+            image={item.image}
+            subtitle={item.subtitle}
+            title={item.title}
+            description=""  // No mostramos descripción en la vista previa
+            tiltDegree={item.id % 2 === 0 ? -2 : 2}
+            hoverEffect={false}
+          />
+        </div>
+      </motion.div>
+    );
   };
 
   // Componente para la tarjeta expandida
@@ -197,7 +241,7 @@ const ScrollingSection = ({
         <div className={`flex ${isMobile ? 'flex-col' : 'flex-row'} items-stretch relative`}>
           {/* Imagen con animación y margen añadido */}
           <motion.div 
-            className={`${isMobile ? "w-full h-56" : "w-64 h-full"} p-2`} // Añadido padding para crear espacio
+            className={`${isMobile ? "w-full h-56" : "w-64 h-full"} p-3`} // Añadido padding para crear espacio
             initial={{ opacity: 0.9 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.1 }}
@@ -205,12 +249,18 @@ const ScrollingSection = ({
               background: "var(--color-10)/5", // Fondo sutil para la sección de la imagen
             }}
           >
-            <img 
-              src={item.image} 
-              alt={item.title} 
-              className="w-full h-full object-cover rounded-md shadow-sm" // Añadido rounded y shadow
-              loading="lazy"
-            />
+            <motion.div
+              className="w-full h-full overflow-hidden rounded-lg shadow-sm"
+              whileHover={{ scale: 1.03 }}
+              transition={{ duration: 0.3 }}
+            >
+              <img 
+                src={item.image} 
+                alt={item.title} 
+                className="w-full h-full object-cover" 
+                loading="lazy"
+              />
+            </motion.div>
           </motion.div>
           
           {/* Contenido con animación - Mejorado para scroll completo en móviles */}
@@ -251,16 +301,31 @@ const ScrollingSection = ({
             >
               {item.title}
             </motion.h3>
-            
-            <motion.div
-              className="mb-6" // Asegura espacio después del texto
+
+            <motion.h3 
+              className="text-sm mb-2"
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.2 }}
+              transition={{ delay: 0.25, duration: 0.2 }}
             >
-              <p>{item.description}</p>
-              {/* Div invisible para asegurar espacio de scroll en móviles */}
-              {isMobile && <div className="h-4"></div>}
+              {item.description}
+            </motion.h3>
+            
+            {/* Botón "Leer más" */}
+            <motion.div
+              className="mt-4"
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.35, duration: 0.2 }}
+            >
+              <button
+                onClick={(e) => openFullContent(item, e)}
+                className="flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
+                style={{ backgroundColor: 'var(--color-main)' }}
+              >
+                <span>Leer más</span>
+                <ExternalLink size={16} className="ml-2" />
+              </button>
             </motion.div>
           </motion.div>
         </div>
@@ -357,38 +422,7 @@ const ScrollingSection = ({
                     {expandedItem && expandedItem.id === item.id && !isClosing ? (
                       <ExpandedCard item={item} />
                     ) : (
-                      <motion.div 
-                        className="cursor-pointer"
-                        custom={index}
-                        variants={cardVariants}
-                        initial="initial"
-                        animate={direction.current !== 0 ? "animate" : "initial"}
-                        whileInView="animate"
-                        viewport={{ once: false, amount: 0.3 }}
-                        onClick={() => toggleExpand(item)}
-                        transition={{ 
-                          duration: 0.4, 
-                          ease: "easeInOut" 
-                        }}
-                        style={{ 
-                          willChange: 'transform',
-                          transform: 'translateZ(0)',
-                          backfaceVisibility: 'hidden'
-                        }}
-                        layout={false}
-                      >
-                        {/* La tarjeta original manteniendo su estilo */}
-                        <div className="w-64 shadow-lg">
-                          <TiltedCard 
-                            image={item.image}
-                            subtitle={item.subtitle}
-                            title={item.title}
-                            description={item.description}
-                            tiltDegree={item.id % 2 === 0 ? -2 : 2}
-                            hoverEffect={false}
-                          />
-                        </div>
-                      </motion.div>
+                      <SimpleCard item={item} index={index} />
                     )}
                   </AnimatePresence>
                 </div>
