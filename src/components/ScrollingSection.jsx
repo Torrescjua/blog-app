@@ -117,7 +117,7 @@ const ScrollingSection = ({
   // Función para abrir el contenido completo en una nueva pestaña
   const openFullContent = (item, e) => {
     e.stopPropagation(); // Prevenir que se cierre la tarjeta al hacer click en el botón
-    window.open(item.url || `/blog/${item.id}`, '_blank');
+    window.open(item.url || `/blog-app/blog/${item.id}`, '_blank');
   };
 
   // Variantes para la animación de las tarjetas individuales
