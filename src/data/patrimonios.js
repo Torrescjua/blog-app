@@ -1,74 +1,74 @@
 /* ---------- IMPORTA TUS IMÁGENES NATURAL ---------- */
-import paramoImg1   from "../assets/natural/paramo_tinajas_1.png";
-import paramoImg2   from "../assets/natural/paramo_tinajas_2.png";
-import paramoImg3  from "../assets/natural/paramo_tinajas_3.png";
+import paramoImg1   from "../assets/natural/paramo_tinajas_1.webp";
+import paramoImg2   from "../assets/natural/paramo_tinajas_2.webp";
+import paramoImg3  from "../assets/natural/paramo_tinajas_3.webp";
 
-import cascadaImg1  from "../assets/natural/cascada_patos_1.png";
-import cascadaImg2  from "../assets/natural/cascada_patos_2.png";
+import cascadaImg1  from "../assets/natural/cascada_patos_1.webp";
+import cascadaImg2  from "../assets/natural/cascada_patos_2.webp";
 
 /* ---------- IMPORTA TUS IMÁGENES MATERIAL INMUEBLE ---------- */
-import laIndustriaImg1 from "../assets/material_inmueble/la_industria_1.png";
-import laIndustriaImg2 from "../assets/material_inmueble/la_industria_2.png";
-import laIndustriaImg3 from "../assets/material_inmueble/la_industria_3.png";
-import laIndustriaImg4 from "../assets/material_inmueble/la_industria_4.png";
-import laIndustriaImg5 from "../assets/material_inmueble/la_industria_5.png";
-import laIndustriaImg6 from "../assets/material_inmueble/la_industria_6.png";
+import laIndustriaImg1 from "../assets/material_inmueble/la_industria_1.webp";
+import laIndustriaImg2 from "../assets/material_inmueble/la_industria_2.webp";
+import laIndustriaImg3 from "../assets/material_inmueble/la_industria_3.webp";
+import laIndustriaImg4 from "../assets/material_inmueble/la_industria_4.webp";
+import laIndustriaImg5 from "../assets/material_inmueble/la_industria_5.webp";
+import laIndustriaImg6 from "../assets/material_inmueble/la_industria_6.webp";
 
-import laChambaImg1   from "../assets/material_inmueble/la_chamba_1.png";
-import laChambaImg2   from "../assets/material_inmueble/la_chamba_2.png";
-import laChambaImg3   from "../assets/material_inmueble/la_chamba_3.png";
-import laChambaImg4   from "../assets/material_inmueble/la_chamba_4.png";
-import laChambaImg5   from "../assets/material_inmueble/la_chamba_5.png";
-import laChambaImg6   from "../assets/material_inmueble/la_chamba_6.png";
+import laChambaImg1   from "../assets/material_inmueble/la_chamba_1.webp";
+import laChambaImg2   from "../assets/material_inmueble/la_chamba_2.webp";
+import laChambaImg3   from "../assets/material_inmueble/la_chamba_3.webp";
+import laChambaImg4   from "../assets/material_inmueble/la_chamba_4.webp";
+import laChambaImg5   from "../assets/material_inmueble/la_chamba_5.webp";
+import laChambaImg6   from "../assets/material_inmueble/la_chamba_6.webp";
 
-import angelImg1     from "../assets/material_inmueble/angel_1.png";
-import angelImg2     from "../assets/material_inmueble/angel_2.png";
-import angelImg3     from "../assets/material_inmueble/angel_3.png";
-import angelImg4     from "../assets/material_inmueble/angel_4.png";
-import angelImg5     from "../assets/material_inmueble/angel_5.png";
-import angelImg6     from "../assets/material_inmueble/angel_6.png";
-import angelImg7     from "../assets/material_inmueble/angel_7.png";
-import angelImg8     from "../assets/material_inmueble/angel_8.png";
-import angelImg9     from "../assets/material_inmueble/angel_9.png";
-import angelImg10    from "../assets/material_inmueble/angel_10.png";
+import angelImg1     from "../assets/material_inmueble/angel_1.webp";
+import angelImg2     from "../assets/material_inmueble/angel_2.webp";
+import angelImg3     from "../assets/material_inmueble/angel_3.webp";
+import angelImg4     from "../assets/material_inmueble/angel_4.webp";
+import angelImg5     from "../assets/material_inmueble/angel_5.webp";
+import angelImg6     from "../assets/material_inmueble/angel_6.webp";
+import angelImg7     from "../assets/material_inmueble/angel_7.webp";
+import angelImg8     from "../assets/material_inmueble/angel_8.webp";
+import angelImg9     from "../assets/material_inmueble/angel_9.webp";
+import angelImg10    from "../assets/material_inmueble/angel_10.webp";
 
-import sanAntonioImg1 from "../assets/material_inmueble/san_antonio_1.png";
-import sanAntonioImg2 from "../assets/material_inmueble/san_antonio_2.png";
-import sanAntonioImg3 from "../assets/material_inmueble/san_antonio_3.png";
+import sanAntonioImg1 from "../assets/material_inmueble/san_antonio_1.webp";
+import sanAntonioImg2 from "../assets/material_inmueble/san_antonio_2.webp";
+import sanAntonioImg3 from "../assets/material_inmueble/san_antonio_3.webp";
 
-import salamancaImg1 from "../assets/material_inmueble/salamanca_1.png";
-import salamancaImg2 from "../assets/material_inmueble/salamanca_2.png";
+import salamancaImg1 from "../assets/material_inmueble/salamanca_1.webp";
+import salamancaImg2 from "../assets/material_inmueble/salamanca_2.webp";
 
-import perdomoImg1   from "../assets/material_inmueble/perdomo_1.png";
-import perdomoImg2   from "../assets/material_inmueble/perdomo_2.png";
-import perdomoImg3   from "../assets/material_inmueble/perdomo_3.png";
-import perdomoImg4   from "../assets/material_inmueble/perdomo_4.png";
+import perdomoImg1   from "../assets/material_inmueble/perdomo_1.webp";
+import perdomoImg2   from "../assets/material_inmueble/perdomo_2.webp";
+import perdomoImg3   from "../assets/material_inmueble/perdomo_3.webp";
+import perdomoImg4   from "../assets/material_inmueble/perdomo_4.webp";
 
-import casaPiedraImg1 from "../assets/material_inmueble/casa_piedra_1.png";
-import casaPiedraImg2 from "../assets/material_inmueble/casa_piedra_2.png";
+import casaPiedraImg1 from "../assets/material_inmueble/casa_piedra_1.webp";
+import casaPiedraImg2 from "../assets/material_inmueble/casa_piedra_2.webp";
 
-import perodiasImg1  from "../assets/material_inmueble/perodias_1.jpg";
-import perodiasImg2  from "../assets/material_inmueble/perodias_2.jpg";
-import perodiasImg3  from "../assets/material_inmueble/perodias_3.jpg";
-import perodiasImg4  from "../assets/material_inmueble/perodias_4.jpg";
-import perodiasImg5  from "../assets/material_inmueble/perodias_5.jpg";
-import perodiasImg6  from "../assets/material_inmueble/perodias_6.jpg";
-import perodiasImg7  from "../assets/material_inmueble/perodias_7.jpg";
-import perodiasImg8  from "../assets/material_inmueble/perodias_8.jpg";
-import perodiasImg9  from "../assets/material_inmueble/perodias_9.jpg";
-import perodiasImg10 from "../assets/material_inmueble/perodias_10.jpg";
-import perodiasImg11 from "../assets/material_inmueble/perodias_11.jpg";
-import perodiasImg12 from "../assets/material_inmueble/perodias_12.jpg";
-import perodiasImg13 from "../assets/material_inmueble/perodias_13.jpg";
+import perodiasImg1  from "../assets/material_inmueble/perodias_1.webp";
+import perodiasImg2  from "../assets/material_inmueble/perodias_2.webp";
+import perodiasImg3  from "../assets/material_inmueble/perodias_3.webp";
+import perodiasImg4  from "../assets/material_inmueble/perodias_4.webp";
+import perodiasImg5  from "../assets/material_inmueble/perodias_5.webp";
+import perodiasImg6  from "../assets/material_inmueble/perodias_6.webp";
+import perodiasImg7  from "../assets/material_inmueble/perodias_7.webp";
+import perodiasImg8  from "../assets/material_inmueble/perodias_8.webp";
+import perodiasImg9  from "../assets/material_inmueble/perodias_9.webp";
+import perodiasImg10 from "../assets/material_inmueble/perodias_10.webp";
+import perodiasImg11 from "../assets/material_inmueble/perodias_11.webp";
+import perodiasImg12 from "../assets/material_inmueble/perodias_12.webp";
+import perodiasImg13 from "../assets/material_inmueble/perodias_13.webp";
 
 
-import laAuroraImg1  from "../assets/material_inmueble/la_aurora_1.png";
-import laAuroraImg2  from "../assets/material_inmueble/la_aurora_2.png";
-import laAuroraImg3  from "../assets/material_inmueble/la_aurora_3.png";
-import laAuroraImg4  from "../assets/material_inmueble/la_aurora_4.png";
-import laAuroraImg5  from "../assets/material_inmueble/la_aurora_5.png";
-import laAuroraImg6  from "../assets/material_inmueble/la_aurora_6.png";
-import laAuroraImg7  from "../assets/material_inmueble/la_aurora_7.png";
+import laAuroraImg1  from "../assets/material_inmueble/la_aurora_1.webp";
+import laAuroraImg2  from "../assets/material_inmueble/la_aurora_2.webp";
+import laAuroraImg3  from "../assets/material_inmueble/la_aurora_3.webp";
+import laAuroraImg4  from "../assets/material_inmueble/la_aurora_4.webp";
+import laAuroraImg5  from "../assets/material_inmueble/la_aurora_5.webp";
+import laAuroraImg6  from "../assets/material_inmueble/la_aurora_6.webp";
+import laAuroraImg7  from "../assets/material_inmueble/la_aurora_7.webp";
 
 
 export const patrimonioNatural = [
