@@ -18,7 +18,7 @@ const Navbar = ({ isMapVisible, onCTAClick }) => {
 
   const mapNavLinks = [
     { href: '#routes', label: 'Todas las Rutas' },
-/*     { href: '#natural', label: 'Patrimonio Natural' },
+/*  { href: '#natural', label: 'Patrimonio Natural' },
     { href: '#cultural', label: 'Patrimonio Cultural' },
     { href: '#favorites', label: 'Mis Favoritos' }, */
   ];
