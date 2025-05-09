@@ -70,6 +70,26 @@ import laAuroraImg5  from "../assets/material_inmueble/la_aurora_5.webp";
 import laAuroraImg6  from "../assets/material_inmueble/la_aurora_6.webp";
 import laAuroraImg7  from "../assets/material_inmueble/la_aurora_7.webp";
 
+/* ---------- IMPORTA TUS IMÁGENES MATERIAL INMUEBLE ---------- */
+import malagonaImg1 from "../assets/material_mueble/malagona_1.webp";
+import malagonaImg2 from "../assets/material_mueble/malagona_2.webp";
+import malagonaImg3 from "../assets/material_mueble/malagona_3.webp";
+import malagonaImg4 from "../assets/material_mueble/malagona_4.webp";
+import malagonaImg5 from "../assets/material_mueble/malagona_5.webp";
+
+/* ---------- IMPORTA TUS IMÁGENES MATERIAL INMATERIAL ---------- */
+import colombiaBailaImg1 from "../assets/inmaterial/colombia_baila_1.webp";
+import colombiaBailaImg2 from "../assets/inmaterial/colombia_baila_2.webp";
+import colombiaBailaImg3 from "../assets/inmaterial/colombia_baila_3.webp";
+
+
+import pachamamaImg1     from "../assets/inmaterial/pachamama_1.webp";
+import pachamamaImg2     from "../assets/inmaterial/pachamama_2.webp";
+import pachamamaImg3     from "../assets/inmaterial/pachamama_3.webp";
+
+import canaFeriaImg1     from "../assets/inmaterial/cana_feria_1.webp";
+import canaFeriaImg2     from "../assets/inmaterial/cana_feria_2.webp";
+import canaFeriaImg3     from "../assets/inmaterial/cana_feria_3.webp";
 
 export const patrimonioNatural = [
   {
@@ -283,4 +303,91 @@ export const patrimonioMaterialInmueble = [
     `
   }
 ];
+
+export const patrimonioMaterialMueble = [
+  {
+    id: 1,
+    images: [malagonaImg1, malagonaImg2, malagonaImg3, malagonaImg4, malagonaImg5],
+    subtitle: "Florida · Valle del Cauca, Colombia",
+    title: "La Malagona (Escultura monumental)",
+    description:
+      "Monumento de ferroconcreto de 11 metros de altura que honra a los corteros de caña y al alma trabajadora de Florida.",
+    author: "Inventario Patrimonial Cultural",
+    date: "Mayo 2025",
+    commentCount: 0,
+    contentIndex: `
+      <article>
+        <p>Erigida junto al Estadio Perodias, en el sector Quinamay, La Malagona es una imponente escultura de ferroconcreto que se alza como homenaje a los hombres y mujeres que han forjado la historia cañera de Florida. Su creador, Buenaventura Malagón, le dio forma en apenas seis meses, modelando directamente sobre el sitio esta obra que hoy alcanza los 11 metros de altura y cerca de 80 toneladas de peso.</p>
+
+        <p>La escultura representa el rostro decidido de un cortero de caña en alto relieve, sostenido por un pedestal cargado de símbolos: la caña de azúcar, el piñón y la química industrial. Un brazo monumental de más de seis metros expresa la fuerza del trabajo físico, mientras un águila sobrevuela la pieza como emblema de espiritualidad. La figura femenina que acompaña la escena encarna al municipio de Florida, ofrendando flores en un gesto de gratitud y memoria.</p>
+
+        <p>Ubicada a 1,4 km del parque principal, esta obra monumental se ha convertido en un punto de referencia visual y emocional. Más que una escultura, es una declaración de orgullo colectivo, pues rinde tributo a una labor que aún hoy sostiene al 85 % de la población. Su valor simbólico trasciende la técnica y el concreto: es identidad pura transformada en arte público.</p>
+      </article>
+    `
+  }
+];
+
+export const patrimonioInmaterial = [
+  {
+    id: 1,
+    images: [colombiaBailaImg1, colombiaBailaImg2, colombiaBailaImg3],
+    subtitle: "Florida · Valle del Cauca, Colombia",
+    title: "Festival Internacional de Danza «Colombia Baila»",
+    description:
+      "Un vibrante encuentro de culturas que celebra la danza como lenguaje de identidad, resistencia y unión desde 1996.",
+    author: "Inventario Patrimonial Cultural (Inmaterial)",
+    date: "Mayo 2025",
+    commentCount: 0,
+    contentIndex: `
+      <article>
+        <p>Cada agosto, la plaza principal de Florida se transforma en un escenario de color y movimiento durante el Festival Internacional de Danza «Colombia Baila». Este evento, que nació en 1996, reúne agrupaciones artísticas nacionales e internacionales que rinden homenaje al folclor colombiano y a la diversidad cultural del continente.</p>
+
+        <p>Más que un espectáculo, es un espacio de formación y encuentro: talleres, intercambios culturales y presentaciones en vivo llenan de vida el corazón del municipio. Su carácter abierto y gratuito permite que toda la comunidad participe, fortaleciendo el sentido de pertenencia y la identidad local.</p>
+
+        <p>Gracias a su impacto sostenido, fue declarado Patrimonio Cultural, Artístico y Folclórico de la Nación mediante la Ley 1647 de 2013. Hoy, «Colombia Baila» no solo celebra la danza, sino que la consagra como patrimonio vivo del pueblo floridano.</p>
+      </article>
+    `
+  },
+  {
+    id: 2,
+    images: [pachamamaImg1, pachamamaImg2, pachamamaImg3],
+    subtitle: "Florida · Valle del Cauca, Colombia",
+    title: "Festival Cultural Latinoamericano «Pachamama»",
+    description:
+      "Una celebración de la tierra, la música andina y los saberes ancestrales que fortalece la convivencia y la inclusión.",
+    author: "Inventario Patrimonial Cultural (Inmaterial)",
+    date: "Mayo 2025",
+    commentCount: 0,
+    contentIndex: `
+      <article>
+        <p>Desde su creación en 2006, el Festival Cultural Latinoamericano «Pachamama» ha sido un canto a la tierra y a la memoria ancestral. Se celebra en la plaza principal de Florida durante el primer fin de semana de noviembre, con entrada libre y espíritu comunitario.</p>
+
+        <p>El festival promueve la música andina como canal de expresión identitaria, convocando agrupaciones con trayectoria que difunden valores de inclusión, respeto y unidad. Además de los conciertos, la programación integra actividades culturales para todas las edades, consolidando su papel como plataforma de convivencia pacífica.</p>
+
+        <p>«Pachamama» es también una herramienta de gestión cultural: sus organizadores promueven el acceso a recursos que permiten sostener el arte y la tradición en el tiempo. En cada nota musical y cada acto escénico, late la memoria de los pueblos que habitan esta tierra fértil y diversa.</p>
+      </article>
+    `
+  },
+  {
+    id: 3,
+    images: [canaFeriaImg1, canaFeriaImg2, canaFeriaImg3],
+    subtitle: "Florida · Valle del Cauca, Colombia",
+    title: "Feria Nacional de la Caña de Azúcar",
+    description:
+      "Un homenaje a la caña y su gente, en una celebración que mezcla cultura, tradición, economía y orgullo territorial.",
+    author: "Inventario Patrimonial Cultural (Inmaterial)",
+    date: "Mayo 2025",
+    commentCount: 0,
+    contentIndex: `
+      <article>
+        <p>La Feria Nacional de la Caña de Azúcar es una de las fiestas más esperadas por los floridanos. Se celebra tradicionalmente en el Parque Bosque Municipal —a 1,9 km del parque principal— y rinde homenaje al cultivo que ha marcado la historia, la economía y la cultura de la región.</p>
+
+        <p>El evento incluye muestras artísticas, conciertos, ferias gastronómicas y actos simbólicos que exaltan el trabajo de los corteros y la riqueza agroindustrial del Valle del Cauca. Desde su creación, ha sido un catalizador de turismo, desarrollo local y reencuentro con las raíces.</p>
+
+        <p>Aunque suele realizarse en junio, su edición número 20 (2024) tuvo lugar en noviembre, mostrando la capacidad de adaptación de esta tradición viva. Más que una feria, es una manifestación colectiva de memoria, resistencia y celebración.</p>
+      </article>
+    `
+  }
+];
+
 

@@ -12,7 +12,7 @@ import Map from './components/MapWithFlags';
 import ArticleDetail from './components/ArticleDetail';
 
 import { testimonialData } from './data/testimonialData';
-import { patrimonioNatural, patrimonioMaterialInmueble } from './data/patrimonios';
+import { patrimonioNatural, patrimonioMaterialInmueble, patrimonioMaterialMueble, patrimonioInmaterial } from './data/patrimonios';
 
 export default function App() {
   const [isMapVisible, setIsMapVisible] = useState(false);
@@ -56,12 +56,12 @@ export default function App() {
                 onOpenArticle={handleOpenArticle}
               />
               <ScrollingSection
-                testimonials={testimonialData}
+                testimonials={patrimonioMaterialMueble}
                 title="Cultural Material Mueble"
                 onOpenArticle={handleOpenArticle}
               />
               <ScrollingSection
-                testimonials={testimonialData}
+                testimonials={patrimonioInmaterial}
                 title="Cultural Inmaterial"
                 onOpenArticle={handleOpenArticle}
               />
