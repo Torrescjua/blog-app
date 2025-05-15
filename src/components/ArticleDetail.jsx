@@ -159,6 +159,61 @@ const HeroImage = ({ images, subtitle, onClick }) => {
     );
   }
 
+  if (images.length >= 3) {
+    return (
+      <div className="relative w-full cursor-pointer" onClick={onClick} role="button" aria-label="Ver galería de imágenes" tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && onClick()}>
+        <div className="flex flex-wrap h-80 sm:h-96">
+          <div className="w-full md:w-1/2 h-1/2 md:h-full p-0.5">
+            <div className="relative h-full">
+              <img src={images[0]} alt="Imagen principal" className="w-full h-full object-cover rounded-tl-lg md:rounded-l-lg" />
+            </div>
+          </div>
+          <div className="w-full md:w-1/2 h-1/2 md:h-full flex flex-col">
+            <div className="h-1/2 p-0.5">
+              <img src={images[1]} alt="Vista adicional" className="w-full h-full object-cover rounded-tr-lg" />
+            </div>
+            <div className="h-1/2 flex">
+              <div className="w-1/2 h-full p-0.5">
+                <img src={images[2]} alt="Vista adicional" className="w-full h-full object-cover" />
+              </div>
+              <div className="w-1/2 h-full p-0.5 relative">
+                {images[3] ? (
+                  <>
+                    <img src={images[3]} alt="Vista adicional" className="w-full h-full object-cover rounded-br-lg" />
+                    {images.length > 4 && (
+                      <div className="absolute inset-0 flex items-center justify-center rounded-br-lg bg-black bg-opacity-50">
+                        <button className="px-3 py-1 sm:px-4 sm:py-2 bg-white bg-opacity-90 rounded-lg text-xs sm:text-sm font-medium flex items-center" onClick={(e) => { e.stopPropagation(); onClick(); }}>
+                          <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+                          </svg>
+                          Ver todas
+                        </button>
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <div className="w-full h-full bg-gray-200 rounded-br-lg flex items-center justify-center">
+                    <span className="text-gray-400">+{images.length - 3}</span>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+        {subtitle && (
+          <span className="absolute top-2 sm:top-4 left-2 sm:left-4 text-white px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-medium" style={{ background: 'var(--color-main)' }}>
+            {subtitle}
+          </span>
+        )}
+        {images.length > 1 && (
+          <div className="absolute bottom-2 sm:bottom-4 right-2 sm:right-4 text-white px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-medium" style={{ background: 'rgba(0,0,0,0.6)' }}>
+            {images.length} fotos
+          </div>
+        )}
+      </div>
+    );
+  }
+
   return (
     <div className="relative w-full cursor-pointer aspect-[16/9]" onClick={onClick} role="button" aria-label="Ver galería de imágenes" tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && onClick()}>
       <img src={images[0]} alt="Imagen principal del artículo" className="w-full h-full object-cover" />
@@ -217,9 +272,6 @@ const ImageGallery = ({ images, currentIndex, onClose, onPrev, onNext }) => {
   );
 };
 
-// Se ha integrado HeroImage e ImageGallery directamente aquí.
-// Puedes pegar sus implementaciones directamente si las necesitas aquí.
-
 // Componente principal
 export default function ArticleDetail({ article, onClose }) {
   if (!article) return null;
@@ -234,7 +286,7 @@ export default function ArticleDetail({ article, onClose }) {
   const images = article.images || [];
 
   const hasPhotoCredits = typeof article.author === 'string' && article.author.includes('<a');
-  const authorText = hasPhotoCredits ? "Inventario Patrimonial" : article.author;
+  const authorText = hasPhotoCredits ? "Inventario Patrimonial Cultural" : article.author;
   const photoCredits = hasPhotoCredits ? article.author : null;
 
   const openGallery = useCallback(() => {
