@@ -29,7 +29,7 @@ const LegacySection = () => {
   const services = [
     {
       icon: <GiMountainCave className="w-8 h-8 text-green-600" />,
-      title: "Patrimonio Natural",
+      title: "Natural",
       description: "Recursos y espacios naturales (ríos, montañas, reservas) que representan la riqueza medioambiental de Florida.",
       link: "#patrimonio-natural",
       details: `Incluye elementos como bosques, ríos, montañas y fauna local. 

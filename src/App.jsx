@@ -11,7 +11,6 @@ import InterviewsCarousel from './components/InterviewsCarousel';
 import Map from './components/MapWithFlags';
 import ArticleDetail from './components/ArticleDetail';
 
-import { testimonialData } from './data/testimonialData';
 import { patrimonioNatural, patrimonioMaterialInmueble, patrimonioMaterialMueble, patrimonioInmaterial } from './data/patrimonios';
 
 export default function App() {
@@ -52,17 +51,17 @@ export default function App() {
               />
               <ScrollingSection
                 testimonials={patrimonioMaterialInmueble}
-                title="Cultural Material Inmueble"
+                title="Patrimonio Cultural Material Inmueble"
                 onOpenArticle={handleOpenArticle}
               />
               <ScrollingSection
                 testimonials={patrimonioMaterialMueble}
-                title="Cultural Material Mueble"
+                title="Patrimonio Cultural Material Mueble"
                 onOpenArticle={handleOpenArticle}
               />
               <ScrollingSection
                 testimonials={patrimonioInmaterial}
-                title="Cultural Inmaterial"
+                title="Patrimonio Cultural Inmaterial"
                 onOpenArticle={handleOpenArticle}
               />
               <InterviewsCarousel />

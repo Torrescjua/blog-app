@@ -16,7 +16,7 @@ const PurposeSection = () => {
       icon: <MdOutlineTurnedIn className="w-8 h-8 text-[var(--color-10)]" />,
       title: "Turismo Cultural Sostenible",
       description:
-        "Proponemos estrategias de difusión que impulsen la economía local, con la comunidad como protagonista, promoviendo un turismo inclusivo y responsable.",
+        "Proponemos estrategias de difusión que impulsen la economía local, con la comunidad como protagonista, promoviendo un turismo sostenible.",
     },
   ];
 

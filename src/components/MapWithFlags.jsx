@@ -22,26 +22,26 @@ import { createCustomIcon } from "../utils/map-icons";
 import "leaflet/dist/leaflet.css";
 
 /* ───────── DATOS ───────── */
-const TOWN_CENTER = [3.3232, -76.2327];                 // Plaza principal
+const TOWN_CENTER = [3.325873, -76.236930];                 // Plaza principal
 
 const LOCATIONS = [
   /* — Arquitectura Histórica — */
   { id: "industria", name: "Hacienda La Industria", position: [3.341389, -76.261389], category: "arquitectura" },
   { id: "chamba",    name: "Casa La Chamba",        position: [3.329722, -76.245000], category: "arquitectura" },
-  { id: "angel",     name: "Iglesia del Ángel",     position: [3.325000, -76.236667], category: "arquitectura" },
+  { id: "angel",     name: "Iglesia del Ángel",     position: [3.325452, -76.236614], category: "arquitectura" },
   { id: "aurora",    name: "Hacienda La Aurora",    position: [3.355278, -76.207222], category: "arquitectura" },
   { id: "perodias",  name: "Hacienda Perodías",     position: [3.301111, -76.255000], category: "arquitectura" },
-  { id: "salamanca", name: "Casa de los Salamanca", position: [3.322222, -76.235000], category: "arquitectura" },
-  { id: "perdomo",   name: "Casa Perdomo",          position: [3.321667, -76.235278], category: "arquitectura" },
-  { id: "piedra",    name: "Casa de Piedra",        position: [3.324722, -76.236111], category: "arquitectura" },
+  { id: "salamanca", name: "Casa de los Salamanca", position: [3.322485, -76.234976], category: "arquitectura" },
+  { id: "perdomo",   name: "Casa Perdomo",          position: [3.321673, -76.235539], category: "arquitectura" },
+  { id: "piedra",    name: "Casa de Piedra",        position: [3.3173981, -76.2221287], category: "arquitectura" },
 
   /* — Paisajes / Patrimonio Natural — (coords aprox.) */
-  { id: "riofrayle", name: "Río Frayle (paseo de olla)",      position: [3.320000, -76.228000], category: "natural" },
-  { id: "mirador",   name: "Mirador Bella Vista / La Diana",  position: [3.338000, -76.212000], category: "natural" },
-  { id: "villa",     name: "Villa Aventura Extrema",          position: [3.323613, -76.178878], category: "natural" },
-  { id: "laguna_fe",          name: "Laguna La Fe",          position: [3.380000, -76.118000], category: "natural" },
-  { id: "laguna_esperanza",   name: "Laguna La Esperanza",   position: [3.382000, -76.115000], category: "natural" },
-  { id: "laguna_caridad",     name: "Laguna La Caridad",     position: [3.384000, -76.112000], category: "natural" },
+  { id: "riofrayle", name: "Río Frayle (paseo de olla)",      position: [3.305378, -76.209214], category: "natural" },
+  { id: "mirador",   name: "Mirador Bella Vista / La Diana",  position: [3.312037, -76.186336], category: "natural" },
+  { id: "villa",     name: "Villa Aventura Extrema",          position: [3.327702, -76.182627], category: "natural" },
+  { id: "laguna_fe",          name: "Laguna La Fe",          position: [3.322558, -76.081007], category: "natural" },
+  { id: "laguna_esperanza",   name: "Laguna La Esperanza",   position: [3.310268, -76.069413], category: "natural" },
+  { id: "laguna_caridad",     name: "Laguna La Caridad",     position: [3.316848, -76.072701], category: "natural" },
 ];
 
 /* ───────── RUTAS ───────── */
@@ -53,7 +53,7 @@ const ROUTES = [
     category: "arquitectura",
     color: "blue",
     positions: [
-      TOWN_CENTER,
+      //TOWN_CENTER,
       LOCATIONS.find(l => l.id === "industria").position,
       LOCATIONS.find(l => l.id === "chamba").position,
       LOCATIONS.find(l => l.id === "angel").position,
@@ -67,10 +67,10 @@ const ROUTES = [
     category: "arquitectura",
     color: "blue",
     positions: [
-      TOWN_CENTER,
+      //TOWN_CENTER,
       LOCATIONS.find(l => l.id === "perodias").position,
-      LOCATIONS.find(l => l.id === "salamanca").position,
       LOCATIONS.find(l => l.id === "perdomo").position,
+      LOCATIONS.find(l => l.id === "salamanca").position,
       LOCATIONS.find(l => l.id === "piedra").position,
     ],
   },
@@ -81,7 +81,7 @@ const ROUTES = [
     category: "natural",
     color: "green",
     positions: [
-      TOWN_CENTER,
+      //TOWN_CENTER,
       LOCATIONS.find(l => l.id === "riofrayle").position,
       LOCATIONS.find(l => l.id === "mirador").position,
       LOCATIONS.find(l => l.id === "villa").position,
@@ -94,10 +94,10 @@ const ROUTES = [
     category: "natural",
     color: "green",
     positions: [
-      LOCATIONS.find(l => l.id === "villa").position,
+      LOCATIONS.find(l => l.id === "mirador").position,
       LOCATIONS.find(l => l.id === "laguna_fe").position,
-      LOCATIONS.find(l => l.id === "laguna_esperanza").position,
       LOCATIONS.find(l => l.id === "laguna_caridad").position,
+      LOCATIONS.find(l => l.id === "laguna_esperanza").position,
     ],
   },
 ];

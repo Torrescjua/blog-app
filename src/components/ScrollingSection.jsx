@@ -91,6 +91,13 @@ const ScrollingSection = ({
     expanded: { rotateZ: 0, y: 0, transition: { duration: .3 } }
   };
 
+  // Nuevas animaciones para el contenido
+  const contentVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.3, delay: 0.15 } },
+    exit: { opacity: 0, transition: { duration: 0.2 } }
+  };
+
   /* ───────── tarjeta simple ───────── */
   const SimpleCard = ({ item, index }) => {
     const mainImage = item.images?.[0] || item.image;
@@ -133,14 +140,27 @@ const ScrollingSection = ({
       >
         <div className={`flex ${isMobile ? 'flex-col' : 'flex-row'} items-stretch relative`}>
           {/* imagen */}
-          <motion.div className={`${isMobile ? 'w-full h-56' : 'w-64 h-full'} p-3`}>
+          <motion.div 
+            className={`${isMobile ? 'w-full h-56' : 'w-64 h-full'} p-3`}
+            variants={contentVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+          >
             <motion.div className="w-full h-full overflow-hidden rounded-lg shadow-sm" whileHover={{ scale: 1.03 }}>
               <img src={mainImage} alt={item.title} className="w-full h-full object-cover" />
             </motion.div>
           </motion.div>
 
           {/* texto */}
-          <motion.div className="flex-1 p-6 overflow-y-auto" style={{ maxHeight: isMobile ? '20rem' : '24rem' }}>
+          <motion.div 
+            className="flex-1 p-6 overflow-y-auto" 
+            style={{ maxHeight: isMobile ? '20rem' : '24rem' }}
+            variants={contentVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+          >
             <button onClick={() => toggleExpand(item)} className="absolute top-3 right-3 p-1 rounded-full hover:bg-[var(--color-7)]/30">
               <X size={20} />
             </button>

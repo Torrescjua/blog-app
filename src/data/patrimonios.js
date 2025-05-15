@@ -99,7 +99,7 @@ export const patrimonioNatural = [
     title: "Páramo de las Tinajas",
     description:
       "Un tesoro natural que protege la vida. Con más de 14 mil hectáreas, el Páramo de las Tinajas es corazón de biodiversidad y fuente vital de agua para el Valle del Cauca.",
-    author: "Inventario Patrimonial Natural",
+    author: "Inventario Patrimonial Natural. Créditos fotográficos: Imagen tomada del perfil de Facebook de <strong>Las Tinajas</strong>, Km 42, Florida, Valle del Cauca. <a href=\"https://www.eltiempo.com/colombia/cali/florida-celebra-184-anos-desde-su-fundacion-133328\" target=\"_blank\" rel=\"noopener noreferrer\">",
     date: "Mayo 2025",
     commentCount: 0,
     contentIndex: `
@@ -122,7 +122,7 @@ export const patrimonioNatural = [
     title: "Cascada Los Patos",
     description:
       "Un salto de agua cristalina en medio de la montaña. La Cascada Los Patos es símbolo del poder del agua y la belleza intacta de la región.",
-    author: "Inventario Patrimonial Natural",
+    author: "Inventario Patrimonial Natural. Créditos fotográficos: Foto 1 de <a href=\"https://mapio.net/pic/p-9639233/\" target=\"_blank\" rel=\"noopener noreferrer\">Mapio</a>; Foto 2 de <a href=\"https://es.wikiloc.com/rutas-mountain-bike/cascada-de-los-patos-florida-valle-58422502\" target=\"_blank\" rel=\"noopener noreferrer\">Wikiloc</a>; Foto 3 de <a href=\"https://www.cenicana.org/con-tecnologia-de-punta-agroindustria-de-la-cana-se-preparo-para-el-fenomeno-de-el-nino/\" target=\"_blank\" rel=\"noopener noreferrer\">Cenicaña</a>; Foto 4 de <a href=\"https://www.facebook.com/CVCambientalValle/videos/263557268071949/\" target=\"_blank\" rel=\"noopener noreferrer\">Facebook - CVC Ambiental Valle</a>.",
     date: "Mayo 2025",
     commentCount: 0,
     contentIndex: `
@@ -147,7 +147,7 @@ export const patrimonioMaterialInmueble = [
     title: "Hacienda La Industria",
     description:
       "Casa republicana que impulsó la transformación agroindustrial del municipio: del trapiche panelero al ingenio azucarero.",
-    author: "Inventario Patrimonial Cultural",
+    author: "Fuente fotográfica del autor presente",
     date: "Mayo 2025",
     commentCount: 0,
     contentIndex: `
@@ -165,7 +165,7 @@ export const patrimonioMaterialInmueble = [
     title: "Casa La Chamba",
     description:
       "Una vivienda de finales del siglo XIX que fue testigo de un sueño ferroviario frustrado.",
-    author: "Inventario Patrimonial Cultural",
+    author: "Fuente fotográfica del autor presente",
     date: "Mayo 2025",
     commentCount: 0,
     contentIndex: `
@@ -183,7 +183,7 @@ export const patrimonioMaterialInmueble = [
     title: "Iglesia del Ángel",
     description:
       "Un templo neoclásico en el corazón de Florida, testigo de la historia y la devoción local.",
-    author: "Inventario Patrimonial Cultural",
+    author: "Inventario Patrimonial Material Inmueble. Créditos fotográficos: Fotos externas por el autor del documento; fotos internas de <a href=\"https://datafloridavalle.com/el-acontecimiento-celestial-de-florida-dos-iglesias-una-avioneta/\" target=\"_blank\">DataFloridaValle</a>; fotos antiguas de <a href=\"https://www.calameo.com/read/007598650cdb4fe5cabd5\" target=\"_blank\">Calaméo</a>.",
     date: "Mayo 2025",
     commentCount: 0,
     contentIndex: `
@@ -201,7 +201,7 @@ export const patrimonioMaterialInmueble = [
     title: "Parroquia San Antonio de Padua",
     description:
       "El corazón religioso de Florida, epicentro de fe, tradición y encuentro comunitario.",
-    author: "Inventario Patrimonial Cultural",
+    author: "Fuente fotográfica del autor presente",
     date: "Mayo 2025",
     commentCount: 0,
     contentIndex: `
@@ -219,7 +219,7 @@ export const patrimonioMaterialInmueble = [
     title: "Casa Salamanca",
     description:
       "Una residencia que ilustra el auge republicano del Valle, obra del maestro Tulio Cotillo.",
-    author: "Inventario Patrimonial Cultural",
+    author: "Fuente fotográfica del autor presente",
     date: "Mayo 2025",
     commentCount: 0,
     contentIndex: `
@@ -237,7 +237,7 @@ export const patrimonioMaterialInmueble = [
     title: "Casa Perdomo",
     description:
       "Una vivienda republicana discreta, cuyas paredes aún guardan secretos de otro tiempo.",
-    author: "Inventario Patrimonial Cultural",
+    author: "Fuente fotográfica del autor presente",
     date: "Mayo 2025",
     commentCount: 0,
     contentIndex: `
@@ -255,7 +255,7 @@ export const patrimonioMaterialInmueble = [
     title: "La Casa de Piedra",
     description:
       "Una construcción de piedra que remite a las raíces coloniales y la historia afrodescendiente de la región.",
-    author: "Inventario Patrimonial Cultural",
+    author: "Inventario Patrimonial Material Inmueble. Créditos fotográficos: Foto en blanco y negro de <a href=\"https://www.eltiempo.com/colombia/cali/florida-celebra-184-anos-desde-su-fundacion-133328\" target=\"_blank\" rel=\"noopener noreferrer\">El Tiempo</a>; foto a color proporcionada por la comunidad en general.",
     date: "Mayo 2025",
     commentCount: 0,
     contentIndex: `
@@ -273,7 +273,7 @@ export const patrimonioMaterialInmueble = [
     title: "Hacienda Perodías",
     description:
       "Una joya colonial que se mantiene como la hacienda más antigua de la región.",
-    author: "Inventario Patrimonial Cultural",
+    author: "Fuente fotográfica del autor presente",
     date: "Mayo 2025",
     commentCount: 0,
     contentIndex: `
@@ -291,7 +291,7 @@ export const patrimonioMaterialInmueble = [
     title: "Hacienda La Aurora",
     description:
       "Arquitectura de transición con historia diplomática: el primer consulado de EE. UU. en Colombia.",
-    author: "Inventario Patrimonial Cultural",
+    author: "Inventario Patrimonial Material Inmueble. Créditos fotográficos: Fotos 1 a 5 tomadas de <strong>Florida Digital</strong>, publicación de Oscar Ibagué Sánchez; fotos 6 a 8 de la publicación de Sebastián Molina en <em>reseñas de Google</em>.<a href=\"https://www.eltiempo.com/colombia/cali/florida-celebra-184-anos-desde-su-fundacion-133328\" target=\"_blank\" rel=\"noopener noreferrer\">",
     date: "Mayo 2025",
     commentCount: 0,
     contentIndex: `
@@ -312,7 +312,7 @@ export const patrimonioMaterialMueble = [
     title: "La Malagona (Escultura monumental)",
     description:
       "Monumento de ferroconcreto de 11 metros de altura que honra a los corteros de caña y al alma trabajadora de Florida.",
-    author: "Inventario Patrimonial Cultural",
+    author: "Fuente fotográfica del autor presente",
     date: "Mayo 2025",
     commentCount: 0,
     contentIndex: `
@@ -335,7 +335,7 @@ export const patrimonioInmaterial = [
     title: "Festival Internacional de Danza «Colombia Baila»",
     description:
       "Un vibrante encuentro de culturas que celebra la danza como lenguaje de identidad, resistencia y unión desde 1996.",
-    author: "Inventario Patrimonial Cultural (Inmaterial)",
+    author: "Inventario Patrimonial Inmaterial. Créditos fotográficos: Imágenes tomadas del perfil de Facebook del <strong>Festival Colombia Baila</strong>.<a href=\"https://www.eltiempo.com/colombia/cali/florida-celebra-184-anos-desde-su-fundacion-133328\" target=\"_blank\" rel=\"noopener noreferrer\">",
     date: "Mayo 2025",
     commentCount: 0,
     contentIndex: `
@@ -355,7 +355,7 @@ export const patrimonioInmaterial = [
     title: "Festival Cultural Latinoamericano «Pachamama»",
     description:
       "Una celebración de la tierra, la música andina y los saberes ancestrales que fortalece la convivencia y la inclusión.",
-    author: "Inventario Patrimonial Cultural (Inmaterial)",
+    author: "Inventario Patrimonial Inmaterial. Créditos fotográficos: Imágenes tomadas del perfil de Facebook del <strong>Festival Pachamama</strong>.<a href=\"https://www.eltiempo.com/colombia/cali/florida-celebra-184-anos-desde-su-fundacion-133328\" target=\"_blank\" rel=\"noopener noreferrer\">",
     date: "Mayo 2025",
     commentCount: 0,
     contentIndex: `
@@ -375,7 +375,7 @@ export const patrimonioInmaterial = [
     title: "Feria Nacional de la Caña de Azúcar",
     description:
       "Un homenaje a la caña y su gente, en una celebración que mezcla cultura, tradición, economía y orgullo territorial.",
-    author: "Inventario Patrimonial Cultural (Inmaterial)",
+    author: "Inventario Patrimonial Inmaterial. Créditos fotográficos: Foto 1 del perfil de Instagram de la Alcaldía de Florida; foto 2 de <a href=\"https://calendarioferiasyfiestas.fontur.com.co/agenda/feria-nacional-de-la-cana-de-azucar\" target=\"_blank\" rel=\"noopener noreferrer\">Fontur - Feria Nacional de la Caña de Azúcar</a>; foto 3 de <a href=\"https://www.eltiempo.com/colombia/cali/florida-promete-realizar-la-feria-mas-dulce-de-todo-el-pais-776312\" target=\"_blank\" rel=\"noopener noreferrer\">El Tiempo</a>.",
     date: "Mayo 2025",
     commentCount: 0,
     contentIndex: `
