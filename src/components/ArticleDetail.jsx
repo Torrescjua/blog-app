@@ -286,7 +286,7 @@ export default function ArticleDetail({ article, onClose }) {
   const images = article.images || [];
 
   const hasPhotoCredits = typeof article.author === 'string' && article.author.includes('<a');
-  const authorText = hasPhotoCredits ? "Inventario Patrimonial Cultural" : article.author;
+  const authorText = hasPhotoCredits ? "Inventario Patrimonial" : article.author;
   const photoCredits = hasPhotoCredits ? article.author : null;
 
   const openGallery = useCallback(() => {
